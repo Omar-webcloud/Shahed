@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth overflow-x-hidden">
 
 <head>
   <meta charset="UTF-8" />
@@ -160,17 +160,19 @@
 </head>
 
 <body
-  class="font-sans antialiased bg-slate-50 text-slate-800 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100">
+  class="font-sans antialiased bg-slate-50 text-slate-800 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100 overflow-x-hidden relative w-full">
 
-  <!-- Backdrop Blur Glow Blobs -->
-  <div
-    class="absolute top-20 left-10 w-72 h-72 bg-sky-400/10 rounded-full blur-3xl pointer-events-none dark:bg-sky-500/5">
-  </div>
-  <div
-    class="absolute top-96 right-10 w-96 h-96 bg-indigo-400/10 rounded-full blur-3xl pointer-events-none dark:bg-indigo-500/5">
-  </div>
-  <div
-    class="absolute bottom-20 left-1/4 w-80 h-80 bg-emerald-400/10 rounded-full blur-3xl pointer-events-none dark:bg-emerald-500/5">
+  <!-- Backdrop Blur Glow Blobs (contained in an overflow-hidden wrapper to prevent mobile overflow) -->
+  <div class="absolute inset-x-0 top-0 bottom-0 min-h-full overflow-hidden pointer-events-none z-0">
+    <div
+      class="absolute top-20 left-10 w-72 h-72 bg-sky-400/10 rounded-full blur-3xl dark:bg-sky-500/5">
+    </div>
+    <div
+      class="absolute top-96 right-10 w-96 h-96 bg-indigo-400/10 rounded-full blur-3xl dark:bg-indigo-500/5">
+    </div>
+    <div
+      class="absolute bottom-20 left-1/4 w-80 h-80 bg-emerald-400/10 rounded-full blur-3xl dark:bg-emerald-500/5">
+    </div>
   </div>
 
   <!-- HEADER / STICKY NAVBAR -->
@@ -290,15 +292,15 @@
         </p>
 
         <!-- CTA Buttons -->
-        <div class="flex flex-col xs:flex-row gap-3 pt-2 w-full xs:w-auto">
+        <div class="flex flex-col sm:flex-row gap-3 pt-2 w-full sm:w-auto">
           <a href="#contact"
-            class="w-full xs:w-auto inline-flex items-center justify-center gap-3 bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl font-bold transition-all duration-300 shadow-lg shadow-brand-500/20 hover:-translate-y-0.5 active:translate-y-0 text-sm sm:text-base">
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl font-bold transition-all duration-300 shadow-lg shadow-brand-500/20 hover:-translate-y-0.5 active:translate-y-0 text-sm sm:text-base">
             <span>Book Consultation</span>
             <i data-lucide="arrow-right" class="w-4 h-4 sm:w-5 sm:h-5"></i>
           </a>
 
           <a href="#education"
-            class="w-full xs:w-auto inline-flex items-center justify-center gap-2 border border-slate-300 dark:border-slate-700 bg-white/50 dark:bg-slate-900/50 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl font-semibold transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 text-sm sm:text-base">
+            class="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-slate-300 dark:border-slate-700 bg-white/50 dark:bg-slate-900/50 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl font-semibold transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0 text-sm sm:text-base">
             <span>View Training</span>
             <i data-lucide="award" class="w-4 h-4 text-brand-600 dark:text-brand-400"></i>
           </a>
