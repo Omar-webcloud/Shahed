@@ -200,10 +200,137 @@
       }
     }
   </style>
+
+  <!-- Premium Splash Screen Styles -->
+  <style>
+    .splash-container {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f8fafc; /* Slate 50 background to match light theme */
+      transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    /* Support dark mode theme dynamically */
+    .dark .splash-container {
+      background-color: #020617; /* Slate 950 background to match dark theme */
+    }
+    
+    .splash-content {
+      width: 85%;
+      max-width: 700px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .splash-container svg {
+      width: 100%;
+      height: auto;
+    }
+    
+    .splash-container .line {
+      fill: none;
+      stroke: #0284c7; /* Brand 600 - premium blue for light theme */
+      stroke-width: 8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      transition: stroke 0.3s ease;
+    }
+    
+    .dark .splash-container .line {
+      stroke: #38bdf8; /* Brand 400 - vibrant sky blue for dark theme */
+    }
+
+    /* Prevent scrolling while splash screen is active */
+    body.splash-active, html.splash-active {
+      overflow: hidden !important;
+      height: 100vh !important;
+    }
+  </style>
+
+  <!-- Prevent Flash of Light Theme during load for dark mode users -->
+  <script>
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  </script>
 </head>
 
 <body
-  class="font-sans antialiased bg-slate-50 text-slate-800 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100 overflow-x-hidden relative w-full">
+  class="font-sans antialiased bg-slate-50 text-slate-800 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100 overflow-x-hidden relative w-full splash-active">
+
+  <!-- SVG Splash Screen Overlay -->
+  <div id="splash-screen" class="splash-container">
+    <div class="splash-content">
+      <svg viewBox="0 0 700 150">
+        <!-- S -->
+        <path class="line" d="M 90,45 C 90,30 40,30 40,55 C 40,80 90,70 90,95 C 90,120 40,120 40,105" />
+        <!-- H -->
+        <path class="line" d="M 130,35 V 115 M 130,75 H 180 M 180,35 V 115" />
+        <!-- A -->
+        <path class="line" d="M 220,115 L 250,35 L 280,115 M 232,85 H 268" />
+        <!-- H -->
+        <path class="line" d="M 320,35 V 115 M 320,75 H 370 M 370,35 V 115" />
+        <!-- E -->
+        <path class="line" d="M 460,35 H 410 V 115 H 460 M 410,75 H 450" />
+        <!-- D -->
+        <path class="line" d="M 500,35 V 115 H 525 C 560,115 560,35 525,35 Z" />
+      </svg>
+    </div>
+  </div>
+
+  <!-- Splash Screen Control & Fallback Script -->
+  <script>
+    // Lock scrollbar on load
+    document.documentElement.classList.add('splash-active');
+    document.body.classList.add('splash-active');
+
+    // Remove splash screen after exactly 5 seconds
+    setTimeout(() => {
+      const splash = document.getElementById('splash-screen');
+      if (splash) {
+        splash.style.opacity = '0';
+        splash.style.visibility = 'hidden';
+        
+        // Restore scrolling after CSS opacity fade transition (600ms)
+        setTimeout(() => {
+          document.documentElement.classList.remove('splash-active');
+          document.body.classList.remove('splash-active');
+          try {
+            splash.remove();
+          } catch (e) {
+            console.error('Error removing splash screen:', e);
+          }
+        }, 600);
+      }
+    }, 5000);
+  </script>
+
+  <!-- SVG Animation Module -->
+  <script type="module">
+    import { animate, svg, stagger } from 'https://esm.sh/animejs';
+
+    // Animate the line drawing of the SHAHED text
+    try {
+      animate(svg.createDrawable('.line'), {
+        draw: ['0 0', '0 1', '1 1'],
+        ease: 'inOutQuad',
+        duration: 4000,
+        delay: stagger(300),
+        loop: true
+      });
+    } catch (err) {
+      console.warn("Anime.js animation failed to initialize:", err);
+    }
+  </script>
 
   <!-- Backdrop Blur Glow Blobs (contained in an overflow-hidden wrapper to prevent mobile overflow) -->
   <div class="absolute inset-x-0 top-0 bottom-0 min-h-full overflow-hidden pointer-events-none z-0">
