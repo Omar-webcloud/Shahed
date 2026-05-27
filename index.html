@@ -59,18 +59,21 @@
       "addressCountry": "BD"
     },
     "url": "https://dr-shahed.web.app",
-    "sameAs": "https://www.linkedin.com/in/shahed-chowdhury-71a0593b8"
+    "sameAs": [
+      "https://www.linkedin.com/in/shahed-chowdhury-71a0593b8",
+      "https://www.facebook.com/share/1K1nc9hiH9/"
+    ]
   }
   </script>
 
   <!-- TailwindCSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Google Fonts: Plus Jakarta Sans (body) & Outfit (headings) -->
+  <!-- Google Fonts: Bricolage Grotesque (body/secondary) & Fraunces (headings/titles) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap"
     rel="stylesheet">
 
   <!-- Lucide Icons CDN for sleek vector icons -->
@@ -115,8 +118,8 @@
             }
           },
           fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-            display: ['Outfit', 'sans-serif'],
+            sans: ['"Bricolage Grotesque"', 'sans-serif'],
+            display: ['Fraunces', 'serif'],
           },
           animation: {
             'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
@@ -430,7 +433,7 @@
   </header>
 
   <!-- HERO SECTION -->
-  <section class="relative min-h-[calc(100vh-70px)] sm:min-h-screen pt-2 sm:pt-20 flex items-center overflow-hidden">
+  <section class="relative min-h-[calc(100vh-70px)] sm:min-h-screen flex items-center overflow-hidden">
     <div class="absolute inset-0 pattern-overlay pointer-events-none"></div>
     <div
       class="max-w-7xl mx-auto px-4 xs:px-6 pt-6 pb-12 sm:py-16 lg:py-20 w-full grid lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
@@ -924,8 +927,8 @@
         <div class="w-16 h-1 bg-brand-500 mx-auto rounded-full"></div>
       </div>
 
-      <!-- Centered 4-Column Responsive Contact Card Layout -->
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto w-full">
+      <!-- Centered 5-Column Responsive Contact Card Layout -->
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-6xl mx-auto w-full">
 
         <!-- Email Card -->
         <a href="mailto:shahed.islamchy@gmail.com"
@@ -938,7 +941,7 @@
             class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 uppercase font-bold tracking-wider mb-2">
             Email Directly</p>
           <p
-            class="text-sm sm:text-base font-semibold text-slate-900 dark:text-slate-100 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors break-all">
+            class="text-xs sm:text-sm font-semibold text-slate-900 dark:text-slate-100 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors break-all">
             shahed.islamchy@gmail.com</p>
         </a>
 
@@ -971,6 +974,22 @@
           <p
             class="text-sm sm:text-base font-semibold text-slate-900 dark:text-slate-100 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors whitespace-nowrap">
             View Profile</p>
+        </a>
+
+        <!-- Facebook Card -->
+        <a href="https://www.facebook.com/share/1K1nc9hiH9/"
+          target="_blank" rel="noopener noreferrer"
+          class="group flex flex-col items-center text-center p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-200/60 dark:border-slate-850 hover:border-brand-500 dark:hover:border-brand-500 hover:bg-white dark:hover:bg-slate-900 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300">
+          <div
+            class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-brand-500/10 dark:bg-brand-500/20 text-brand-600 dark:text-brand-400 flex items-center justify-center mb-5 sm:mb-6 group-hover:scale-110 group-hover:bg-brand-600 group-hover:text-white transition-all duration-300 flex-shrink-0">
+            <i class="fa-brands fa-facebook text-2xl sm:text-3xl"></i>
+          </div>
+          <p
+            class="text-[10px] sm:text-xs text-slate-500 dark:text-slate-400 uppercase font-bold tracking-wider mb-2">
+            Facebook</p>
+          <p
+            class="text-sm sm:text-base font-semibold text-slate-900 dark:text-slate-100 group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors whitespace-nowrap">
+            Connect Online</p>
         </a>
 
         <!-- Location Card -->
@@ -1018,6 +1037,9 @@
           <a href="https://www.linkedin.com/in/shahed-chowdhury-71a0593b8?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile"
             class="p-2 rounded-xl bg-slate-850 hover:bg-brand-600 text-slate-400 hover:text-white transition"><i
               class="fa-brands fa-linkedin text-lg"></i></a>
+          <a href="https://www.facebook.com/share/1K1nc9hiH9/" target="_blank" rel="noopener noreferrer" aria-label="Facebook Profile"
+            class="p-2 rounded-xl bg-slate-850 hover:bg-brand-600 text-slate-400 hover:text-white transition"><i
+              class="fa-brands fa-facebook text-lg"></i></a>
           <a href="#" aria-label="ResearchGate Profile"
             class="p-2 rounded-xl bg-slate-850 hover:bg-brand-600 text-slate-400 hover:text-white transition"><i
               data-lucide="graduation-cap" class="w-4 h-4"></i></a>
