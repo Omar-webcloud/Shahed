@@ -26,7 +26,7 @@ The website emphasizes:
 ## Key Features
 
 
-### Modern UI/UX Design
+### UI/UX Design
 - TailwindCSS-based responsive interface
 - Dark and light mode with persistent state
 - Animated SVG splash screen
